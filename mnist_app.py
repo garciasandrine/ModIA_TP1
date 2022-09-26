@@ -12,9 +12,9 @@ def recognize_digit(image):
     return {str(i): probabilities[i].item() for i in range(10)}
 
 if __name__=='__main__':
-    parser = ...
-    parser.add_argument('--weights_path'...)
-    args = ...
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--weights_path',type=str, default = 'weights_path', help='path_to_the weights')
+    args = parser.parse_args()
 
     model = MNISTNet().to(device)
     model.load_state_dict(torch.load(..., map_location=torch.device(device)))
